@@ -48,7 +48,12 @@
             </div>
         </div>
 
-        <div class="next-btn"></div>
+        <!-- met action en method zorgen dat hij naar volgende vraag gaat? -->
+        <div class="next-btn">
+            <form>
+                <input class="button" type="submit" name="next-question-btn" value="Volgende">
+            </form>
+        </div>
     </div>
 
 </body>
