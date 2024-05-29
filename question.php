@@ -12,6 +12,7 @@
 
     <div class="question-page">
 
+        <!-- heb de header even apart gezet zodat ik die in de andere pages ook makkelijk kon neerzetten:) -->
         <?php include('header.php') ?>
 
         <div>
