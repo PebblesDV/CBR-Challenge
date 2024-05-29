@@ -7,6 +7,10 @@
   <title>Start Pagina</title>
 </head>
 
-<body></body>
+<body>
+
+  <?php include('header.php') ?>
+
+</body>
 
 </html>
