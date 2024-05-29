@@ -1,3 +1,24 @@
+<?php
+$chapter = $_GET['chapter'];
+
+//voor testen of het heeft gewerkt
+// echo "You selected chapter: $chapter";
+
+//Code voor de connectie van de vragen is op dit moment raar aan het doen, ga morgen vragen aan Martijn vgm  
+
+//   $questions_json = file_get_contents('public/assets/json/questions.json');
+//   $questions_json_data = json_decode($questions_json, true);
+
+//   if ($questions_json_data === null) {
+//       echo "Error: Unable to decode JSON data.";
+//       exit;
+//   }
+
+//   $filtered_questions = array_filter($questions_json_data, function ($question) use ($chapter) {
+//       return $question['category'] === $chapter;
+//   });
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +36,14 @@
         <!-- heb de header even apart gezet zodat ik die in de andere pages ook makkelijk kon neerzetten:) -->
         <?php include('header.php') ?>
 
-        <div>
+          <div>
             <img class="question-img" src="public/assets/img/401c.jpg" alt="img">
-        </div>
+          </div>
 
-        <div class="question-info">
-            <p class="question qstn-txt">Hier komt dan de vraag?</p>
-            <p class="description qstn-txt">Met hier dan een beschrijving over wat je op het plaatje ziet.</p>
-        </div>
+          <div class="question-info">
+              <p class="question qstn-txt">Hier komt dan de vraag?</p>
+              <p class="description qstn-txt">Met hier dan een beschrijving over wat je op het plaatje ziet.</p>
+          </div>
 
         <!-- dit is de code om door alle antwoorden heen te loopen en die te laten zien als dat eenmaal kan!! -->
         <!-- <?php foreach ($var as $key => $var) : ?>
