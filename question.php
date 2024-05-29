@@ -26,11 +26,9 @@
 
         <!-- dit is de code om door alle antwoorden heen te loopen en die te laten zien als dat eenmaal kan!! -->
         <!-- <?php foreach ($var as $key => $var) : ?>
-            <a href="" class="">
                 <div class="answer-card">
                     <p class="answer">Hier komt een antwoord</p>
                 </div>
-            </a>
         <?php endforeach; ?> -->
 
         <!-- dit is alleen even hardcoded om te checken hoe het staat:)) -->

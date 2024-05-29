@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(black 0px 2px 5px);
 }
 
 .logo {

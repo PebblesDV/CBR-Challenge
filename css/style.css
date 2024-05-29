@@ -2,5 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  background-color: #a9a9a9;
+  background-image: linear-gradient(#a9a9a9, #545454);
+  min-height: 100vh;
+  background-repeat: no-repeat;
 }
