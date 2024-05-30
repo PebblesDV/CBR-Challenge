@@ -57,7 +57,8 @@ foreach ($json_data as $items) {
               <br>
               Chapter: <?= $chapter ?>
             </p>
-            <form action="question.php">
+            <!--Dit zorgt ervoor dat de info van welke chapter je klikt wordt gestuurd naar de volgende pagina :D-->
+            <form action="question.php?chapter=<?= urlencode($chapter)?>" method="post">
               <input class="start-btn" type="submit" name="start-btn" value="Start examen">
             </form>
           </div>
