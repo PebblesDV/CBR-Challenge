@@ -27,6 +27,10 @@
 
         <p class="score-txt">Hier laten zien of je wel of niet bent geslaagd!</p>
 
+        <form>
+            <input class="retake-btn" type="submit" name="retake-btn" value="Maak opnieuw">
+        </form>
+
     </div>
 
 </body>
