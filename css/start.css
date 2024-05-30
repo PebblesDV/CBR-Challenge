@@ -7,9 +7,11 @@
 }
 
 .start-txt-all {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  background-color: rgb(230, 230, 230);
+  height: fit-content;
+  padding: 10px;
+  border-radius: 20px;
+  filter: drop-shadow(rgb(59, 59, 59) 0px 1px 1px);
 }
 
 .start-txt {
@@ -24,14 +26,33 @@
 }
 
 .category-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
   background-color: #009de0;
   width: fit-content;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 20px;
+  filter: drop-shadow(rgb(59, 59, 59) 0px 1px 1px);
 }
 
 .category-txt {
   margin: 0;
   color: white;
+}
+
+.start-btn {
+  background-color: #16b9ff;
+  border: none;
+  color: black;
+  padding: 5px;
+  filter: drop-shadow(rgb(59, 59, 59) 0px 1px 1px);
+}
+
+.start-btn:hover {
+  cursor: pointer;
+  background-color: #16a6e4;
+  transition: 0.2s;
 }

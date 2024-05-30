@@ -35,9 +35,12 @@ foreach ($json_data as $items) {
   <div class="all-info">
 
     <div class="start-txt-all">
-      <p class="start-txt">Welkom bij het Theorie Examen Auto (rijbewijs B)</p>
-      <p class="start-txt">Kies een categorie waar je het examen van wilt maken!</p>
-      <p class="start-txt">Wanneer je klaar bent kun je weer terug naar dit scherm en het examen <br> opnieuw maken, of een andere categorie kiezen.</p>
+      <p class="start-txt">Welkom bij het Theorie Examen Auto (rijbewijs B)
+        <br><br>
+        Kies een categorie waar je het examen van wilt maken!
+        <br><br>
+        Wanneer je klaar bent kun je weer terug naar dit scherm en het examen <br> opnieuw maken, of een andere categorie kiezen.
+      </p>
     </div>
 
     <div class="category-all-cards">
@@ -54,6 +57,9 @@ foreach ($json_data as $items) {
               <br>
               Chapter: <?= $chapter ?>
             </p>
+            <form action="question.php">
+              <input class="start-btn" type="submit" name="start-btn" value="Start examen">
+            </form>
           </div>
       <?php
         }
@@ -66,4 +72,5 @@ foreach ($json_data as $items) {
 
 </html>
 
+<!-- heb de onclick veranderd naar een action in een form voor de button:) weet niet wat het laatste stukje van deze code doet/betekent dus laat het even hier staan in case we sill need it! -->
 <!-- onclick="window.location.href='question.php?chapter=<?= urlencode($chapter) ?>'" -->
