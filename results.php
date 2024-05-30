@@ -14,6 +14,7 @@
     <div class="results-info">
         <div class="top-txt">
             <p class="score-txt">Je bent klaar met het Theorie Examen Auto (rijbewijs B)</p>
+            <p class="score-txt">Category: A - Chapter: Hier de chapter</p>
             <p class="score-txt">Bekijk hier onder jouw uitslag!</p>
         </div>
 
