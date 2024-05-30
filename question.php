@@ -107,14 +107,13 @@ $current_question = $filtered_questions[$current_question_index];
                         <div class="answer-card">
                             <p class="answer"><?= htmlspecialchars($option) ?></p>
                         </div>
-                        <br>
-                <?php
+            <?php
                     }
                 }
             } ?>
         </div>
 
-        
+
         <div class="next-btn">
             <form method="get">
                 <input type="hidden" name="chapter" value="<?= htmlspecialchars($chapter) ?>">
