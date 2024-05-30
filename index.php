@@ -24,6 +24,7 @@ foreach ($json_data as $items) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/start.css">
   <title>Start Pagina</title>
 </head>
 
@@ -31,24 +32,38 @@ foreach ($json_data as $items) {
 
   <?php include('header.php') ?>
 
-  <?php
+  <div class="all-info">
 
-//for each loop voor de data
-  foreach ($grouped_data as $category => $chapters) {
-    foreach ($chapters as $chapter) {
-  ?>
+    <div class="start-txt-all">
+      <p class="start-txt">Welkom bij het Theorie Examen Auto (rijbewijs B)</p>
+      <p class="start-txt">Kies een categorie waar je het examen van wilt maken!</p>
+      <p class="start-txt">Wanneer je klaar bent kun je weer terug naar dit scherm en het examen <br> opnieuw maken, of een andere categorie kiezen.</p>
+    </div>
 
-      <div onclick="window.location.href='question.php?chapter=<?= urlencode($chapter) ?>'">
-        <!-- hier wordt de info van de catogorie en de chapter geplaats -->
-        <p> Category: <?= $category ?>
-        <br>
-         Chapter: <?= $chapter ?></p>
-      </div>
-  <?php
-    }
-  }
-  ?>
+    <div class="category-all-cards">
+      <?php
+
+      //for each loop voor de data
+      foreach ($grouped_data as $category => $chapters) {
+        foreach ($chapters as $chapter) {
+      ?>
+
+          <div class="category-card">
+            <!-- hier wordt de info van de catogorie en de chapter geplaats -->
+            <p class="category-txt"> Category: <?= $category ?>
+              <br>
+              Chapter: <?= $chapter ?>
+            </p>
+          </div>
+      <?php
+        }
+      }
+      ?>
+    </div>
+  </div>
 
 </body>
 
 </html>
+
+<!-- onclick="window.location.href='question.php?chapter=<?= urlencode($chapter) ?>'" -->

@@ -1,0 +1,37 @@
+.all-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 40px;
+}
+
+.start-txt-all {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.start-txt {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.category-all-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card {
+  background-color: #009de0;
+  width: fit-content;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.category-txt {
+  margin: 0;
+  color: white;
+}

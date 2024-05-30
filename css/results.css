@@ -29,6 +29,7 @@
   width: 200px;
   height: auto;
   display: block;
+  filter: drop-shadow(black 0px 1px 1px);
 }
 
 .img-container {
