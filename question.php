@@ -4,16 +4,25 @@ $chapter = $_GET['chapter'];
 //voor testen of het heeft gewerkt
 // echo "You selected chapter: $chapter";
 
-//Code voor de connectie van de vragen is op dit moment raar aan het doen, ga morgen vragen aan Martijn vgm  
+//Code voor de connectie van de vragen is op dit moment raar aan het doen, ga morgen(vandaag nu :D) vragen aan Martijn vgm  
 
-//   $questions_json = file_get_contents('public/assets/json/questions.json');
-//   $questions_json_data = json_decode($questions_json, true);
+  $questions_json = file_get_contents('public\assets/json/questions.json');
+
+  // Check if file_get_contents succeeded
+  if ($questions_json === false) {
+      echo "Error: Unable to read JSON file.";
+      exit;
+  }
+
+//Deze is degene die vervelend doet dus ff als comment houden :)
+//   $questions_json_data = json_decode($questions_json, true); 
 
 //   if ($questions_json_data === null) {
-//       echo "Error: Unable to decode JSON data.";
+//       echo "Error: Unable to decode JSON data. " . json_last_error_msg();
 //       exit;
 //   }
 
+//ge comment zodat hij geen errors geeft
 //   $filtered_questions = array_filter($questions_json_data, function ($question) use ($chapter) {
 //       return $question['category'] === $chapter;
 //   });
