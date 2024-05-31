@@ -7,11 +7,6 @@ if (!isset($_SESSION['question_index'])) {
     $_SESSION['question_index'] = 0;
 }
 
-//Om de question index te updaten :D
-if (isset($_GET['next-question-btn'])) {
-    $_SESSION['question_index'] += 1;
-}
-
 //De informatie voor de chapter ophallen
 $chapters_json = file_get_contents('public/assets/json/chapters.json');
 if ($chapters_json === false) {
@@ -57,14 +52,42 @@ $filtered_questions = array_values(array_filter($questions_data, function ($ques
     return $question['category'] === $category;
 }));
 
+//variabel voor error message aanmaken
+$error_message = '';
+
+//score als ie niet al bestaat
+if (!isset($_SESSION['score'])) {
+    $_SESSION['score'] = 0;
+}
+
+//antwoord is de eerste optie in de optie array want antwoorden zijn niet te vinden.
+$correct_answer = $filtered_questions[$_SESSION['question_index']]['options'][0];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['answer'])) {
+        //zet de session als het geposte antwoord
+        $_SESSION['answers'][$_SESSION['question_index']] = $_POST['answer'];
+
+        //als het hetzelfde is
+        if ($_POST['answer'] == $correct_answer) {
+            $_SESSION['score'] += 1;
+        }
+
+        //Om naar de volgende vraag te gaan
+        if ($_SESSION['question_index'] < count($filtered_questions) - 1) {
+            $_SESSION['question_index'] += 1;
+        } else {
+            //dit stuurt je naar de resultaat pagina als je bij de laatste vraag bent en op de volgende knop drukt.
+            header("Location: results.php?category=$category&chapter=$chapter&score={$_SESSION['score']}&question_amount=" . count($filtered_questions));
+            exit;
+        }
+    } else {
+        $error_message = "Please select an answer.";
+    }
+}
+
 //zorgt ervoor dat t hetzelfde is als de geupdate (of juist niet) index
 $current_question_index = $_SESSION['question_index'];
-
-//Tijdelijk. Zorgt ervoor dat de vragen door loopen enz :D
-if ($current_question_index >= count($filtered_questions)) {
-    $current_question_index = 0;
-    $_SESSION['question_index'] = 0;
-}
 
 //zet de juiste vraag erin
 $current_question = $filtered_questions[$current_question_index];
@@ -93,33 +116,34 @@ $current_question = $filtered_questions[$current_question_index];
 
         <div class="question-info">
             <p class="question qstn-txt"><?= htmlspecialchars($current_question['question']) ?></p>
-            <!-- <p class="description qstn-txt">Met hier dan een beschrijving over wat je op het plaatje ziet.</p> -->
+            <?php if ($error_message) : ?>
+                <p class="error"><?= htmlspecialchars($error_message) ?></p>
+            <?php endif; ?>
         </div>
 
-        <div class="all-answers">
-            <?php
-            //checked of de opties niet leeg zijn ofzo
-            if (isset($current_question['options']) && !empty($current_question['options'])) {
-                // de loop om ze allenmaal te laten zien
-                foreach ($current_question['options'] as $option) {
-                    if (!empty($option)) {
-            ?>
-                        <div class="answer-card">
-                            <p class="answer"><?= htmlspecialchars($option) ?></p>
-                        </div>
-            <?php
+        <form method="post">
+            <div class="all-answers">
+                <?php
+                if (isset($current_question['options']) && !empty($current_question['options'])) {
+                    foreach ($current_question['options'] as $option) {
+                        if (!empty($option)) {
+                ?>
+                            <div class="answer-card">
+                                <input type="radio" id="<?= htmlspecialchars($option) ?>" name="answer" value="<?= htmlspecialchars($option) ?>">
+                                <label for="<?= htmlspecialchars($option) ?>" class="answer"><?= htmlspecialchars($option) ?></label>
+                            </div>
+                <?php
+                        }
                     }
                 }
-            } ?>
-        </div>
+                ?>
+            </div>
 
-
-        <div class="next-btn">
-            <form method="get">
+            <div class="next-btn">
                 <input type="hidden" name="chapter" value="<?= htmlspecialchars($chapter) ?>">
                 <input class="button" type="submit" name="next-question-btn" value="Volgende">
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 
 </body>

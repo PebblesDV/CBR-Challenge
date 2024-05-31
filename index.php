@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+session_unset();
 //roept de json file op en stop het in de variabel
 $json = file_get_contents('public\assets/json/chapters.json');
 //json file word ge decode. Eig omgezet naar een soort php array.
