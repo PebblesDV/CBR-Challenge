@@ -54,6 +54,11 @@
   max-width: fit-content;
 }
 
+.next-btn {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   width: 100px;
   background-color: #009de0;

@@ -128,10 +128,10 @@ $current_question = $filtered_questions[$current_question_index];
                     foreach ($current_question['options'] as $option) {
                         if (!empty($option)) {
                 ?>
-                            <div class="answer-card">
+                            <label class="answer-card">
                                 <input type="radio" id="<?= htmlspecialchars($option) ?>" name="answer" value="<?= htmlspecialchars($option) ?>">
                                 <label for="<?= htmlspecialchars($option) ?>" class="answer"><?= htmlspecialchars($option) ?></label>
-                            </div>
+                            </label>
                 <?php
                         }
                     }
